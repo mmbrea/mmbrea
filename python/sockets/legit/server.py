@@ -36,7 +36,12 @@ def main(argv: List[str] = None) -> int:
     # create the server socket
     with socket.create_server(("", parsed.port)) as sock:
         print(sock.getsockname())
-        client, addr = sock.accept()
+
+        try:
+            client, addr = sock.accept()
+        except KeyboardInterrupt:
+            return 0
+
         print("'{}' connected!".format(addr))
         while True:
             try:
