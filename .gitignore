@@ -14,3 +14,4 @@ htmlcov
 .task_data_cache
 datazen-out
 tags
+.idea
